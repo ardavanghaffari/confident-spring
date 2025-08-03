@@ -1,0 +1,13 @@
+[versions]
+tomcat-embed-core = "11.0.9"
+shadow = "9.0.0-rc3"
+lombok = "1.18.38"
+jackson-databind = "2.19.2"
+
+[libraries]
+tomcat-embed-core = { module = "org.apache.tomcat.embed:tomcat-embed-core", version.ref = "tomcat-embed-core" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson-databind"}
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+
+[plugins]
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }

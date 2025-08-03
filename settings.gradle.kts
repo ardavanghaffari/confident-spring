@@ -1,4 +1,4 @@
-rootProject.name = "confident-spring-professional"
+rootProject.name = "confident-spring"
 
 include(":my-fancy-pdf-invoices")
 
