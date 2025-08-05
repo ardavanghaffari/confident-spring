@@ -12,7 +12,7 @@ public class InvoiceService {
 
     private final UserService userService;
 
-    private List<Invoice> invoices = new CopyOnWriteArrayList<>();
+    private final List<Invoice> invoices = new CopyOnWriteArrayList<>();
 
     public List<Invoice> findAll() {
         return invoices;

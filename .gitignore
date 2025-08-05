@@ -5,7 +5,7 @@ build/
 # Intellij IDEA
 .idea/
 *.iml
-bin
-tomcat.*
+bin/
+tomcat.*/
 
-.vscode
+.vscode/
