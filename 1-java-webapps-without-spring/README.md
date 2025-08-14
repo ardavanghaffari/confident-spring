@@ -71,7 +71,7 @@ First, we'll need an additional Jackson library `jackson-datatype-jsr310` to be 
 Java 8+ date/time datatypes in JSON. The first question that comes into mind is which datatype
 to use for the timestamp field? I ended up using `Instant` while the author went for
 `ZonedDateTime`. Which one is better and how are they different? Although the application currently
-stores transactions only in memory, for the purposes of this note we'll assume they are persisted in
+stores transactions only in memory, for the purpose of this note we'll assume they are persisted in
 a PostgreSQL database.
 
 ```java
@@ -95,7 +95,7 @@ private ZonedDateTime timestamp;
   the formatter used internally by Jackson) tries to fetch the `YearOfEra` field from the `Instant`,
   but since `Instant` doesn't have it, it throws that exception. Note that even if we wanted our
   timestamp to be formatted in UTC, we should have still specified `timezone = "UTC"` in the
-  annotation. Jackson doesn't assume because it's an `Instant` then it can default to UTC and it
+  annotation. Jackson doesn't assume because it's an `Instant` then it can default to UTC, and it
   will throw the same exception in absence of the timezone value.
 - We say on the one hand that `Instant` is in UTC but we also say that it has no timezone which may
   sound contradictory since UTC is a timezone after all. When we say that it has no timezone, we're
@@ -132,7 +132,7 @@ Internally, date and time values in PostgreSQL are persisted as microseconds sin
 **PostgreSQL doesn't persist the original timezone information**. In spite of that, PostgreSQL has
 a.o. two misleadingly named types `TIMESTAMP WITH TIME ZONE` and `TIMESTAMP WITHOUT TIME ZONE`.
 
-##### TIMESTAMP WITHOUT TIME ZONE
+#### TIMESTAMP WITHOUT TIME ZONE
 
 Whatever value you insert is stored exactly as you wrote it. PostgreSQL does no timezone related
 conversion on input or output. If the value was entered into the database as `2011-07-01 06:30:30`,
@@ -160,7 +160,7 @@ SELECT ts FROM ts_no_tz;
 
 Stored exactly as typed. No interpretation.
 
-##### TIMESTAMP WITH TIME ZONE
+#### TIMESTAMP WITH TIME ZONE
 
 Stores a point on the UTC timeline. The input is internally converted to UTC, and that's how it's
 stored. For that, the offset of the input must be known, so when the input contains no explicit
