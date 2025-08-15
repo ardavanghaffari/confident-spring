@@ -12,3 +12,4 @@
 
 # Binary files should be left untouched
 *.jar           binary
+*.mp4           binary
