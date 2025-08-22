@@ -151,3 +151,15 @@ public class ApplicationConfiguration {
   `java -Dspring.profiles.active=dev -jar app.jar`.
 - When using multiple `@PropertySources`, the order is important because the one's coming later
   have higher precedence and will overwrite the same properties from previous `@PropertySources`.
+
+## Bootstrapping Spring Context
+
+In a non-Spring Boot application (e.g. when using only `spring-context`), we have to create the
+application context ourselves. There is no auto bootstrap. Spring Boot adds that magic for us
+(via `SpringApplication.run(...)`), but in plain Spring we do that manually. The class with
+the `main` method usually bootstraps Spring. Note that this class cannot itself be constructed via
+Spring injection because when `main` executes, Spring context hasn't been initialized yet and so
+there is no container yet to inject it. It's like a chicken-egg problem: Spring context doesn't
+exist until `main` creates it.
+See [ApplicationLauncher](./mybank-spring/src/main/java/io/github/ardavanghaffari/mybank/ApplicationLauncher.java)
+for example.
