@@ -4,6 +4,7 @@ include(":my-fancy-pdf-invoices")
 include(":mybank")
 include(":my-fancy-pdf-invoices-spring")
 include(":mybank-spring")
+include(":my-fancy-pdf-invoices-spring-webmvc")
 
 project(":my-fancy-pdf-invoices").projectDir =
     file("1-java-webapps-without-spring/my-fancy-pdf-invoices")
@@ -16,3 +17,6 @@ project(":my-fancy-pdf-invoices-spring").projectDir =
 
 project(":mybank-spring").projectDir =
     file("2-spring-ioc-basics/mybank-spring")
+
+project(":my-fancy-pdf-invoices-spring-webmvc").projectDir =
+    file("3-spring-webmvc-rest-services/my-fancy-pdf-invoices-spring-webmvc")

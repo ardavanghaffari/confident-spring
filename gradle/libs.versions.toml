@@ -5,6 +5,10 @@ lombok = "1.18.38"
 jackson-databind = "2.19.2"
 jackson-datatype = "2.20.0-rc1"
 spring-context = "7.0.0-M8"
+spring-webmvc = "7.0.0-M8"
+jackson-dataformat-xml = "2.20.0"
+hibernate-validator = "9.0.0.Final"
+expressly = "6.0.0"
 
 [libraries]
 tomcat-embed-core = { module = "org.apache.tomcat.embed:tomcat-embed-core", version.ref = "tomcat-embed-core" }
@@ -12,6 +16,10 @@ jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", ver
 jackson-datatype = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson-datatype" }
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 spring-context = { module = "org.springframework:spring-context", version.ref = "spring-context" }
+spring-webmvc = { module = "org.springframework:spring-webmvc", version.ref = "spring-webmvc" }
+jackson-dataformat-xml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-xml", version.ref = "jackson-dataformat-xml" }
+hibernate-validator = { module = "org.hibernate.validator:hibernate-validator", version.ref = "hibernate-validator" }
+expressly = { module = "org.glassfish.expressly:expressly", version.ref = "expressly" }
 
 [plugins]
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
