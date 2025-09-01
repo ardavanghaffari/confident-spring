@@ -1,6 +1,5 @@
 package io.github.ardavanghaffari.myfancypdfinvoices.context;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.ardavanghaffari.myfancypdfinvoices.ApplicationLauncher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,11 +19,6 @@ public class ApplicationConfiguration {
     @Bean
     public MethodValidationPostProcessor methodValidationPostProcessor() {
         return new MethodValidationPostProcessor();
-    }
-
-    @Bean
-    public ObjectMapper objectMapper() {
-        return new ObjectMapper();
     }
 
 }
