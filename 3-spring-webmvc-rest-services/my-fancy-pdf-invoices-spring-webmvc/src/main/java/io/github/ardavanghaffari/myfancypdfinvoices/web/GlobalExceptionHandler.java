@@ -12,7 +12,7 @@ public class GlobalExceptionHandler {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public String handlemethodArgumentNotValid(MethodArgumentNotValidException exception) {
+    public String handleMethodArgumentNotValid(MethodArgumentNotValidException exception) {
         return "Sorry, that was not quite right: " + exception.getMessage();
     }
 
