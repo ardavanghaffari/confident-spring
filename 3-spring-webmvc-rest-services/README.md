@@ -196,11 +196,18 @@ own domain exceptions.
 
 ```bash
 ./gradlew :my-fancy-pdf-invoices-spring-webmvc:clean :my-fancy-pdf-invoices-spring-webmvc:build
-
 java -Dspring.profiles.active=dev -jar 3-spring-webmvc-rest-services/my-fancy-pdf-invoices-spring-webmvc/build/libs/my-fancy-pdf-invoices-spring-webmvc-1.0-all.jar
-
 curl -X GET "http://localhost:8080/invoices" -H "Accept: application/xml"
 curl -X GET "http://localhost:8080/invoices" -H "Accept: application/json"
 curl -X POST "http://localhost:8080/invoices?user_id=ardavan&amount=40" -H "Accept: application/json"
 curl -X POST "http://localhost:8080/invoices" -H "Accept: application/xml" -H "Content-Type: application/json" -d '{"amount":"2000","user_id":"ari"}'
+
+./gradlew :mybank-spring-webmvc:clean :mybank-spring-webmvc:build
+java -Dserver.port=8090 -jar 3-spring-webmvc-rest-services/mybank-spring-webmvc/build/libs/mybank-spring-webmvc-1.0-all.jar
+curl -X GET "http://localhost:8090/transactions" -H "Accept: application/json"
+curl -X GET "http://localhost:8090/transactions" -H "Accept: application/xml"
+curl -X POST "http://localhost:8090/transactions" -H "Accept: application/json" -H "Content-Type: application/json" -d '{"amount":2000,"reference":"book of the year!"}'
+curl -X POST "http://localhost:8090/transactions" -H "Accept: application/xml" -H "Content-Type: application/json" -d '{"amount":2000,"reference":"ari"}'
+curl -X POST "http://localhost:8090/transactions" -H "Accept: application/xml" -H "Content-Type: application/xml" -d '<request><amount>2000</amount><reference>book of the year!</reference></request>'
+curl -X POST "http://localhost:8090/transactions" -H "Accept: application/json" -H "Content-Type: application/xml" -d '<request><amount>2000</amount><reference>book of the year!</reference></request>'
 ```
