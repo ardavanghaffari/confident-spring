@@ -9,6 +9,7 @@ spring-webmvc = "7.0.0-M8"
 jackson-dataformat-xml = "2.20.0"
 hibernate-validator = "9.0.0.Final"
 expressly = "6.0.0"
+thymeleaf-spring6 = "3.1.3.RELEASE"
 
 [libraries]
 tomcat-embed-core = { module = "org.apache.tomcat.embed:tomcat-embed-core", version.ref = "tomcat-embed-core" }
@@ -20,6 +21,7 @@ spring-webmvc = { module = "org.springframework:spring-webmvc", version.ref = "s
 jackson-dataformat-xml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-xml", version.ref = "jackson-dataformat-xml" }
 hibernate-validator = { module = "org.hibernate.validator:hibernate-validator", version.ref = "hibernate-validator" }
 expressly = { module = "org.glassfish.expressly:expressly", version.ref = "expressly" }
+thymeleaf-spring6 = { module = "org.thymeleaf:thymeleaf-spring6", version.ref = "thymeleaf-spring6" }
 
 [plugins]
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
