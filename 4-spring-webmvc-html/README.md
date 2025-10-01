@@ -88,11 +88,15 @@ POST:
 Form Validation:
 
 - Add appropriate validations such as `@NotBlank`, `@Size`, etc. to the _backing bean_.
-- Add `@Valid` to the Controller. The problem with this as you might remember from the Rest Services
-  module earlier is that invalid input will result in an exception which would be caught by the
-  `GlobalExceptionHandler`. This is not what we want in this case. We'd instead want to re-render
-  the login form and display the validation errors. That's why we have to use the `BindingResult`
-  parameter. It is basically a container for all validation errors.
+- Add `@Valid` to the Controller method (or `@Validated` on the Controller itself for validating
+  `@RequestParams`).
+- The problem with this as you might remember from the Rest Services module earlier is that invalid
+  input will result in an exception which would be caught by the `GlobalExceptionHandler`. This is
+  not what we want in this case. We'd instead want to re-render the login form and display the
+  validation errors. That's why we have to use the `BindingResult` parameter. It is basically a
+  container for all validation errors.
+- The `BindingResult` must immediately follow the `@Valid` argument.
+- On validation errors, Spring does not throw an exception — instead it populates the BindingResult.
 - You can access the binding result through special Thymeleaf syntax, with
   `#fields.hasErrors(yourFieldName)`. If the field has errors, you again are using special
   Thymeleaf syntax to display the error message that is bound to a field of your backing bean.
@@ -103,8 +107,11 @@ Form Validation:
 ```bash
 ./gradlew :my-fancy-pdf-invoices-spring-webmvc-html:clean :my-fancy-pdf-invoices-spring-webmvc-html:build
 java -Dspring.profiles.active=dev -jar 4-spring-webmvc-html/my-fancy-pdf-invoices-spring-webmvc-html/build/libs/my-fancy-pdf-invoices-spring-webmvc-html-1.0-all.jar
-
 curl -X GET "http://localhost:8080/?username=ardavan"
 curl -X GET "http://localhost:8080/?username="
 curl -X GET "http://localhost:8080/?username=zara"
+
+./gradlew :mybank-spring-webmvc-html:clean :mybank-spring-webmvc-html:build
+java -jar 4-spring-webmvc-html/mybank-spring-webmvc-html/build/libs/mybank-spring-webmvc-html-1.0-all.jar
+curl -X POST "http://localhost:8080/transactions" -H "Accept: application/json" -H "Content-Type: application/json" -d '{"amount":2000,"reference":"book of the year!","receivingUser":"ardavan123"}'
 ```
