@@ -107,8 +107,10 @@ top of either JDBC, or JPA/Hibernate, or LDAP.
 ./gradlew :my-fancy-pdf-invoices-spring-database:clean :my-fancy-pdf-invoices-spring-database:build
 java -Dspring.profiles.active=dev -jar 5-spring-database/my-fancy-pdf-invoices-spring-database/build/libs/my-fancy-pdf-invoices-spring-database-1.0-all.jar
 curl -X GET "http://localhost:8080/invoices"
-curl -X GET "http:POST "http://localhost:8080/invoices" -H "Accept: application/xml" -H "Content-Type: application/json" -d '{"amount":"20","user_id":"ari"}'
+curl -X POST "http://localhost:8080/invoices" -H "Accept: application/xml" -H "Content-Type: application/json" -d '{"amount":"20","user_id":"ari"}'
 
 ./gradlew :mybank-spring-database:clean :mybank-spring-database:build
 java -jar 5-spring-database/mybank-spring-database/build/libs/mybank-spring-database-1.0-all.jar
+curl -X GET "http://localhost:8080/transactions" -H "Accept: application/json"
+curl -X POST "http://localhost:8080/transactions" -H "Accept: application/json" -H "Content-Type: application/json" -d '{"amount":2000,"reference":"book of the year!","receivingUser":"ardavan123"}'
 ```

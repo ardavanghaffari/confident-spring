@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions</title>
+</head>
+<body>
+
+<h1>Account Page</h1>
+
+<p>
+    Account of user <span th:text="${userId}" th:remove="tag">[User ID]</span>
+</p>
+
+<h2>Transaction List</h2>
+<div th:if="${!transactions.isEmpty()}">
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Timestamp</th>
+            <th>Reference</th>
+            <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="transaction, iStat: ${transactions}">
+            <td th:text="${iStat.index}">[Number]</td>
+            <td th:text="${transaction.id}">[ID]</td>
+            <td th:text="${#temporals.format(transaction.timestamp, 'dd-MM-yyyy HH:mm')}">[Timestamp]</td>
+            <td th:text="${transaction.reference}">[Reference]</td>
+            <td th:text="${transaction.amount}">[Amount]</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:unless="${!transactions.isEmpty()}">
+    <p>
+        No Transactions yet.
+    </p>
+</div>
+
+<h2>New Transaction</h2>
+
+<div th:if="${txError}" style="background-color: red;">
+    There was an error posting your transaction!
+</div>
+
+<form th:action="@{/account/{id}(id=${userId})}" th:object="${txForm}" method="post">
+
+    <p>Receiving User Id: <input type="text" th:field="*{receivingUser}"/></p>
+    <p style="background-color:red" th:if="${#fields.hasErrors('receivingUser')}" th:errors="*{receivingUser}"></p>
+
+    <p>Amount: <input type="number" step="0.01" th:field="*{amount}"/></p>
+    <p style="background-color:red" th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></p>
+
+    <p>Reference: <input type="text" th:field="*{reference}"/></p>
+    <p style="background-color:red" th:if="${#fields.hasErrors('reference')}" th:errors="*{reference}"></p>
+
+    <p><input type="submit" value="Submit"/></p>
+</form>
+
+</body>
+</html>
