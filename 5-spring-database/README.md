@@ -12,7 +12,8 @@ To connect to a database with Java and Spring, we need two things:
 
 We're going to use an in-memory [H2 database](https://www.h2database.com/html/main.html). No
 installation is needed. It is available as a dependency along with the necessary JDBC driver.
-This is why it is used, by default, as a testing database in Spring Boot.
+This is why it is used, by default, as a testing database in Spring Boot. That is only if the
+H2 dependency is present on the classpath. Spring boot doesn't add H2 automatically.
 
 For an overview of all popular database libraries & APIs in Java, refer
 to [this article](https://www.marcobehler.com/guides/java-databases).
