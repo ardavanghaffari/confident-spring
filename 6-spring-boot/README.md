@@ -100,14 +100,14 @@ These were the changes needed to Bootify the project:
     - Add the `spring-boot-starter-jdbc` dependency, again without a version. This adds Spring
       framework's JDBCTemplate support. Not to be confused with `spring-data` (module 8).
     - Add the H2 dependency.
-    - These two dependencies are enough for Spring Boot to automagically create an embedded H2
+    - These two dependencies are enough for Spring Boot to automatically create an embedded H2
       database whenever you start up your application.
-    - Add relevant DataSource config to application.properties file. Before, we created the
+    - Add relevant DataSource config to `application.properties` file. Before, we created the
       DataSource bean in Java code. Here Spring Boot uses the configuration and creates it for us.
     - Spring Boot automatically looks for a file named `schema.sql` and executes it when the
       application starts. Independent of the database and any H2 specific connection strings. This
-      is Spring Boot's poor man's version of Flyway or Liquibase. So we no longer have to add the
-      INIT script to the datasource.url like we did previously (in Java code).
+      is Spring Boot's poor man's version of _Flyway_ or _Liquibase_. So we no longer have to add
+      the INIT script to the `datasource.url` like we did previously (in Java code).
     - Remove `DataSource`, `JdbcTemplate` and `TransactionManager` beans.
     - Remove the following annotations from `ApplicationConfiguration`:
       ```java
@@ -128,10 +128,10 @@ These were the changes needed to Bootify the project:
 
 ## Spring Boot's autoconfiguration
 
-If you specify properties like `spring.datasource.xxx` in your application.properties, then Spring
+If you specify properties like `spring.datasource.xxx` in your _application.properties_, then Spring
 Boot will actually create a DataSource @Bean for you, even if you don't see it. In the same way, it
 will also create a JdbcTemplate, so that you can inject it into any class you want. It will also
-automatically look for and run that schema.sql script. It will automatically enable
+automatically look for and run that `schema.sql` script. It will automatically enable
 TransactionManagement features, so that `@Transactional` works out of the box. This leads to the
 conclusion that with Spring Boot you define a ton of beans through specifying properties, instead
 of writing Java classes. And that Spring Boot, with these properties, creates a ton of @beans and
@@ -139,7 +139,7 @@ other stuff you never directly see. This is what's called Spring Boot's autoconf
 
 When comparing the Spring Boot version of the code with the Spring Web MVC version from the
 previous modules, we see that Spring Boot only takes plain Spring framework features, and configures
-them _for you_, behind the scenes:
+them _for us_, behind the scenes:
 
 - It boots up an embedded Tomcat when you run the SpringBootApplication main method.
 - It automatically generates beans from `application.properties`.
@@ -148,8 +148,8 @@ them _for you_, behind the scenes:
   other necessary dependencies.
 
 Spring Boot is hiding exactly what we did in the previous module (starting Tomcat, registering
-DispatcherServlet, creating DataSources, using the _Shadow_ plugin to produce a fat JAR, etc.),
-it still has to happen behind the scenes. There's no way around it!
+DispatcherServlet, creating DataSources, using the _Shadow_ plugin to produce a fat JAR, etc.).
+It still has to happen behind the scenes. There's no way around it!
 
 ## Commands used in this module
 
