@@ -16,7 +16,6 @@ spring-boot = "4.0.0-M3"
 spring-boot-starter-web = "4.0.0-M3"
 spring-boot-starter-jdbc = "4.0.0-M3"
 spring-boot-starter-validation = "4.0.0-M3"
-spring-boot-starter-test = "4.0.0-M3"
 spring-dependency-management = "1.1.7"
 
 [libraries]
@@ -35,7 +34,6 @@ h2 = { module = "com.h2database:h2", version.ref = "h2" }
 spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring-boot-starter-web" }
 spring-boot-starter-jdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc", version.ref = "spring-boot-starter-jdbc" }
 spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "spring-boot-starter-validation" }
-spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot-starter-test" }
 spring-boot-starter-thymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf" }
 
 [plugins]

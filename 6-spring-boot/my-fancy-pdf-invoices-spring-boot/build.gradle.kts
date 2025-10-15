@@ -13,7 +13,4 @@ dependencies {
     implementation(libs.h2)
     compileOnly(libs.lombok)
     annotationProcessor(libs.lombok)
-    testImplementation(libs.spring.boot.starter.test) {
-        exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
-    }
 }
