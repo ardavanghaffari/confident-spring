@@ -125,6 +125,15 @@ These were the changes needed to Bootify the project:
           class can be removed all together.
         - Spring Boot _autoconfigures_ Thymeleaf with sane defaults. No need for manual bean
           definitions. Use properties to override the defaults if needed.
+- When Bootifying the _MyBank_ application, we see that accepting `application/json` from the Rest
+  controller works out of the box, however asking the data in `application/xml` format throws an
+  exception that `Java 8 date/time type java.time.Instant is not supported by default` and that we
+  should `register the com.fasterxml.jackson.datatype:jackson-datatype-jsr310 module` to enable
+  handling. The reason that JSON works by default and XML not, seems to be that jackson-databind
+  which is pulled in through spring-boot-starter-web uses a mapper for JSON that is already
+  configured with a default InstantSerializer, while for XML a different mapper is used that doesn't
+  have the same built-in serializer. Having the `jackson-datatype-jsr310` dependency on the
+  classpath ensures correct configuration for XML as well.
 
 ## Spring Boot's autoconfiguration
 
@@ -162,4 +171,6 @@ curl -X POST "http://localhost:8080/invoices" -H "Accept: application/xml" -H "C
 
 ./gradlew :mybank-spring-boot:clean :mybank-spring-boot:build
 java -jar 6-spring-boot/mybank-spring-boot/build/libs/mybank-spring-boot-1.0-all.jar
+curl -X GET "http://localhost:8080/transactions" -H "Accept: application/json"
+curl -X POST "http://localhost:8080/transactions" -H "Accept: application/json" -H "Content-Type: application/json" -d '{"amount":2000,"reference":"book of the year!","receivingUser":"ardavan123"}'
 ```

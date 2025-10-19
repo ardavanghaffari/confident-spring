@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<h1>Welcome to My Bank</h1>
+<p>
+    <span th:text="${slogan}" th:remove="tag">[Slogan]</span>
+</p>
+</body>
+</html>
