@@ -21,7 +21,6 @@ public class ExampleAutoConfiguration {
 
     @Bean
     public ViburDBCPDataSource dataSource(ExampleDataSourceProperties properties) {
-        System.out.println("hello ds");
         ViburDBCPDataSource ds = new ViburDBCPDataSource();
         ds.setJdbcUrl(properties.getUrl());
         ds.setUsername(properties.getUsername());
