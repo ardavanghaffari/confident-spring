@@ -16,7 +16,9 @@ spring-boot = "4.0.0-M3"
 spring-boot-starter-web = "4.0.0-M3"
 spring-boot-starter-jdbc = "4.0.0-M3"
 spring-boot-starter-validation = "4.0.0-M3"
+spring-boot-dependencies = "4.0.0-M3"
 spring-dependency-management = "1.1.7"
+vibur-dbcp = "25.0"
 
 [libraries]
 tomcat-embed-core = { module = "org.apache.tomcat.embed:tomcat-embed-core", version.ref = "tomcat-embed-core" }
@@ -35,6 +37,10 @@ spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-start
 spring-boot-starter-jdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc", version.ref = "spring-boot-starter-jdbc" }
 spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "spring-boot-starter-validation" }
 spring-boot-starter-thymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf" }
+spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot-dependencies" }
+spring-boot-autoconfigure = { module = "org.springframework.boot:spring-boot-autoconfigure" }
+spring-boot-jdbc = { module = "org.springframework.boot:spring-boot-jdbc" }
+vibur-dbcp = { module = "org.vibur:vibur-dbcp", version.ref = "vibur-dbcp" }
 
 [plugins]
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
