@@ -127,4 +127,9 @@ curl -X GET "http://localhost:8080/invoices"
 curl -X GET "http://localhost:8080/invoices/user/someUserId"
 curl -X POST "http://localhost:8080/invoices" -H "Content-Type: application/json" -d '{"amount":"20","user_id":"ari"}'
 curl -X POST "http://localhost:8080/invoices" -H "Accept: application/xml" -H "Content-Type: application/json" -d '{"amount":"20","user_id":"ari"}'
+
+./gradlew :mybank-spring-data-jdbc:clean :mybank-spring-data-jdbc:build
+java -jar 8-spring-data-jdbc/mybank-spring-data-jdbc/build/libs/mybank-spring-data-jdbc-1.0.jar
+curl -X GET "http://localhost:8080/transactions" -H "Accept: application/json"
+curl -X POST "http://localhost:8080/transactions" -H "Accept: application/json" -H "Content-Type: application/json" -d '{"amount":2000,"reference":"book of the year!","receivingUser":"ardavan123"}'
 ```

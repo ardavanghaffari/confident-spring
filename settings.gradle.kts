@@ -15,6 +15,7 @@ include(":mybank-spring-boot")
 include(":example-spring-boot-starter")
 include(":my-fancy-pdf-invoices-spring-boot-vibur-dbcp")
 include(":my-fancy-pdf-invoices-spring-data-jdbc")
+include(":mybank-spring-data-jdbc")
 
 project(":my-fancy-pdf-invoices").projectDir =
     file("1-java-webapps-without-spring/my-fancy-pdf-invoices")
@@ -60,3 +61,6 @@ project(":my-fancy-pdf-invoices-spring-boot-vibur-dbcp").projectDir =
 
 project(":my-fancy-pdf-invoices-spring-data-jdbc").projectDir =
     file("8-spring-data-jdbc/my-fancy-pdf-invoices-spring-data-jdbc")
+
+project(":mybank-spring-data-jdbc").projectDir =
+    file("8-spring-data-jdbc/mybank-spring-data-jdbc")
