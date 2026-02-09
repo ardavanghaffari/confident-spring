@@ -8,7 +8,7 @@
 *.bat           text eol=crlf
 
 # Force Unix (LF) line endings for everything else
-*               text eol=lf
+*               text=auto eol=lf
 
 # Binary files should be left untouched
 *.jar           binary
