@@ -102,6 +102,50 @@ Form Validation:
   Thymeleaf syntax to display the error message that is bound to a field of your backing bean.
   See [login](./my-fancy-pdf-invoices-spring-webmvc-html/src/main/resources/templates/login.html).
 
+## Thoughts On Spring
+
+- Spring Boot makes it very easy to use the Spring platform in an opinionated way. Opinionated means
+  that there is a lot of useful default configuration for all libraries and frameworks where a
+  Spring Boot starter exists. For example, if using Spring Data JDBC the datasource is
+  autoconfigured.
+- In plain Spring (not Boot), if you want to use JDBC or JPA you usually have to configure a
+  DataSource bean yourself. That means writing something like:
+  ```java
+  @Bean
+  public DataSource dataSource() {
+    DriverManagerDataSource ds = new DriverManagerDataSource();
+    ds.setDriverClassName("org.postgresql.Driver");
+    ds.setUrl("jdbc:postgresql://localhost:5432/mydb");
+    ds.setUsername("user");
+    ds.setPassword("secret");
+    return ds;
+  }
+  ```
+  This is boilerplate, and you'd also have to make sure the right driver is on the classpath.
+- With Spring Boot + Spring Data JDBC (or JPA), you don't have to write the Bean yourself. It is
+  _autoconfigured_ in the sense that Spring Boot will provide a sensible default Bean using your
+  `spring.datasource.*` properties. You can still declare your own DataSource bean in which case,
+  Spring won't override it.
+- Spring Data provides uniform access to many kinds of data stores like SQL or NOSQL databases or
+  search engines.
+- Reactive (Spring Webflux) is the right tool for applications with a heavy load that need to scale
+  and where the thread-based model comes to its limit.
+- Always use the tool that best fits the requirements. If you must build a highly interactive
+  application, SPA may be the answer. But if you create a form-based application, a server-side
+  rendering like MVC with Thymeleaf is the better fit. I would also recommend to have a look at
+  [Vaadin](https://vaadin.com/). I'm currently using Vaadin in a ERP UI replacement project and the
+  development speed is impressive. Keep in mind when choosing a client-side framework, you will
+  create what formerly was called a client/server-application. You will have to learn a new language
+  and a completely different build stack. Another important fact is that you will need a REST API
+  that you also have to test. Both will cost time and money.
+- I started using Toplink (now EclipseLink) 20 years ago. Later, I mostly used Hibernate, but I
+  finally came to the conclusion that in many cases, this abstraction layer doesn't help. It just
+  adds more complexity and hides the power of the underlying database. Today I prefer using jOOQ
+  where I have full control over SQL and can use all database features. For example, I can directly
+  create JSON or XML from a SELECT statement without any additional mapping framework. Additionally,
+  due to the jOOQ DSL and the object generator, I can write compile time checked SQL. There is a
+  Spring Boot starter for jOOQ that autoconfigures the datasource and adds transaction support.
+
 ## Commands used in this module
 
 ```bash

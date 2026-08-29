@@ -163,3 +163,15 @@ there is no container yet to inject it. It's like a chicken-egg problem: Spring 
 exist until `main` creates it.
 See [ApplicationLauncher](./mybank-spring/src/main/java/io/github/ardavanghaffari/mybank/ApplicationLauncher.java)
 for example.
+
+## Thoughts On Spring
+
+- Spring Data Neo4j, Neo4j-OGM, SDN-RX, including an OpenCypher DSL.
+- Core Spring Dependency Injection, Spring's Testing framework, one of the web layers, either
+  standard MVC or reactive.
+- Would you still invest time in learning Spring based on servlets and JDBC, or go straight into
+  reactive Spring? You can do imperative web applications with Spring without ever having to look
+  into the fact that servlets are behind it. So, the question should be: Would you still invest
+  time into imperative programming or go straight to reactive? Imperative or _blocking_ programming
+  model is far from dead, there is absolutely no need to make reactive the default today. There are
+  good reasons for some use cases, but reactive programming is not a silver bullet.

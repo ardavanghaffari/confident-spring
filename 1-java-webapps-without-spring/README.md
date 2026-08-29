@@ -228,6 +228,21 @@ run as:
 java -Dserver.port=8090 -jar 1-java-webapps-without-spring/mybank/build/libs/mybank-1.0-all.jar
 ```
 
+## Thoughts On Spring
+
+- Dependency Injection, Front Controller, Factory and Template Design Patterns. Patterns used
+  heavily by Spring.
+- Spring Core to understand various ways of configuring beans (@annotations, JavaConfig), bean life
+  cycle methods, scopes etc.
+- Understand Spring's annotation-based database transaction handling, and how propagation and
+  isolation levels work.
+- Spring MVC, Spring Security, Spring Cloud.
+- Don't Jump directly to Spring Boot. A newbie can build a Spring Boot application by simply
+  following Spring Boot guides or any blog post without much struggle. But it all looks magical
+  because they don't know how and why it is working. If a developer knows how to configure and use
+  Spring without Spring Boot then it is very easy to understand how Spring Boot works.
+- Start with reactive Spring after having the basics covered.
+
 ## Curl Commands
 
 ```bash

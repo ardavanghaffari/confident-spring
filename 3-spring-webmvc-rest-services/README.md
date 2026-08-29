@@ -192,6 +192,24 @@ These controller advices could act as a central, last _catch-all_ barrier before
 sent back to the client. They are not only about Spring's own exceptions but can also handle our
 own domain exceptions.
 
+## Thoughts On Spring
+
+- Webflux and Reactive Spring but make sure to learn the traditional servlet stack first.
+- When developing front-end what matters is a fast feedback loop - you need to be able to see the
+  changes you're making in order to proceed further. With traditional server-side Java applications,
+  it has always been a pain. Yes, Spring Boot has support for Thymeleaf live-reload, but everything
+  else - CSS pre/post processors, frontend dependencies via WebJars - feels like gluing things
+  together and hoping it's going to work. Modern front-end frameworks' programming models let
+  developers build reusable components and avoid CSS clashes thanks to CSS-in-JS or CSS Modules.
+  I believe that client-side framework used properly can significantly speed up the development.
+  Thymeleaf has not been actively maintained since 2018. Wro4j which aimed to address some of these
+  issues, is also pretty much dead. If Spring offered first-class support for building server-side
+  rendered full-stack applications, I would be very happy to use it. Today, unfortunately, it's just
+  pragmatic to use one of the client-side frameworks or Vaadin.
+- Spring Data JDBC is simple, opinionated. There is not much magic. does not try to abstract too
+  much, but on the downside, it's also limited in functionality. Use Spring Data JPA when running
+  into the limitations of Spring Data JDBC.
+
 ## Commands used in this module
 
 ```bash

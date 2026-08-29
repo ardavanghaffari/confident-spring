@@ -160,6 +160,16 @@ Spring Boot is hiding exactly what we did in the previous module (starting Tomca
 DispatcherServlet, creating DataSources, using the _Shadow_ plugin to produce a fat JAR, etc.).
 It still has to happen behind the scenes. There's no way around it!
 
+## Thoughts On Spring
+
+- Use the [topical guides](https://spring.io/guides) to get started quickly with a certain topic.
+- Use the [Spring Data](https://spring.io/projects/spring-data)
+  and [Spring MVC / WebFlux](https://docs.spring.io/spring-framework/reference/) projects if your
+  app uses persistence and HTTP API respectively.
+- Two projects for learning
+  purposes: [PetClinic](https://github.com/spring-projects/spring-petclinic)
+  and [COVID-19 contact tracking application](https://github.com/quarano/quarano-application).
+
 ## Commands used in this module
 
 ```bash
